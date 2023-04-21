@@ -1,7 +1,8 @@
-const router = require('express').Router();
-
+const router = require("express").Router();
+const database = require("../db/db.json");
 router.get("/notes", (req, res) => {
-    res.send('Hello World');
-})
+  console.info(`Getting notes from ${database}`);
+  res.json(database);
+});
 
 module.exports = router;

@@ -1,20 +1,18 @@
 const router = require("express").Router();
-const db = require("../db/db.json");
+const db = require("../db/db");
 const fs = require("fs");
 const path = require("path");
 const uuid = require("uuid");
+
+//Grabs the note list.
 
 router.get("/notes", (req, res) => {
   console.info(`Getting notes from the database...`);
   res.json(db);
 });
 
-router.delete("/api/notes/:id", (req, res) => {
-  res.json(req);
-});
-
 router.delete("/notes/:id", (req, res) => {
-    let jsonPath = path.join(__dirname, "../db/db.json");
+  let jsonPath = path.join(__dirname, "../db/db.json");
   for (i = 0; i < db.length; i++) {
     if (db[i].id == req.params.id) {
       db.splice(i, 1);
@@ -32,7 +30,9 @@ router.delete("/notes/:id", (req, res) => {
 });
 
 router.post("/notes", (req, res) => {
-  let jsonPath = path.join(__dirname, "../db/db.json");
+  let jsonFilePath = path.join(__dirname, "../db/db.json");
+
+  let note = req.body;
   note.id = uuid.v4();
   console.log(`Note ID: ${note.id}`);
   console.info(
@@ -40,7 +40,7 @@ router.post("/notes", (req, res) => {
   );
   db.push(note);
 
-  fs.writeFile(jsonPath, JSON.stringify(db), function (err) {
+  fs.writeFile(jsonFilePath, JSON.stringify(db), function (err) {
     err ? console.log(err) : console.log("Success");
   });
 

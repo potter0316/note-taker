@@ -2,7 +2,7 @@
   ![badge](https://img.shields.io/badge/license-MIT-important)
   
 ## Description
-This module is an example of a note taking application. The user uses node and express to keep track of notes. The note taker application lets users safe notes, and delete notes. 
+This module is an example of a note taking application. The user uses node and express to keep track of notes. The note taker application lets users save notes, and delete notes.
 
 ## Table of Contents
 - [Description](#description)
@@ -23,10 +23,9 @@ $ cd note-taker
 ```
 
 ## Usage
-Demonstration of the note taker!
-Heroku Server: []
+The user can access this website by following the link!: [https://radiant-ravine-90533.herokuapp.com/]. Once the user clicks the Get Started button they will be able to create, save, and even delete notes!
 ## Links
- [link]
+ Heroku Server[https://radiant-ravine-90533.herokuapp.com/]
 ## License
 MIT
 ## Author
